@@ -1,5 +1,3 @@
----
-
 ## 1. Difference between `var`, `let`, and `const`
 
 - **var**
