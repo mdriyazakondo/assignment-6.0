@@ -93,6 +93,110 @@
       </div>
     </section>
 
+    <main class="bg-[#f0fdf4]">
+      <section id="gallery" class="px-4 md:px-24">
+        <h2 class="text-center pt-24 text-3xl md:text-4xl font-semibold">
+          Choose Your Trees
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 py-12">
+          <!-- Categories -->
+          <div class="col-span-1 md:col-span-2">
+            <h2 class="text-2xl font-medium mb-3">Categories</h2>
+            <ul id="category" class="space-y-4"></ul>
+          </div>
+
+          <!-- Trees Grid -->
+          <div class="col-span-1 md:col-span-8">
+            <div
+              class="flex items-center justify-center py-20 hidden"
+              id="loadingSpnniner"
+            >
+              <span class="loading loading-dots loading-xl"></span>
+            </div>
+            <div
+              class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+              id="greenTreeAllData"
+            ></div>
+          </div>
+
+          <!-- Cart -->
+          <div
+            class="col-span-1 md:col-span-2 bg-white rounded-md p-4 mt-6 md:mt-0"
+          >
+            <h3 class="text-2xl font-semibold mb-4">Your Cart</h3>
+            <div id="rightSide"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="max-w-5xl mx-auto py-24">
+        <h2 class="text-center py-20 text-4xl font-semibold">
+          About the Campaign
+        </h2>
+        <div
+          class="flex flex-col md:flex-row items-center justify-center gap-4"
+        >
+          <div class="w-full px-2 md:px-0 md:w-1/2">
+            <img src="./image/about.png" alt="" />
+          </div>
+          <div class="w-full px-2 md:px-0 md:w-1/2">
+            <p>
+              Green Earth is a global tree plantation initiative dedicated to
+              fighting climate change. Since our start, we’ve planted over
+              500,000 trees worldwide. By joining our campaign, you help restore
+              forests, create habitats for wildlife, and combat global warming.
+            </p>
+            <ul class="list-disc pl-8 mt-4">
+              <li>Restoration of natural habitats</li>
+              <li>Improvement of air quality</li>
+              <li>Support for local communities</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="plant-tree" class="bg-[#cff0dc] py-24 px-4 md:px-0">
+        <h2 class="text-center py-12 text-4xl font-semibold">Our Impact</h2>
+        <div class="max-w-7xl mx-auto pb-12">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div
+              class="bg-white py-10 flex flex-col items-center justify-center rounded-lg hover:bg-green-200 cursor-pointer transition-all duration-200"
+            >
+              <h2 class="text-[#15803d] text-3xl font-bold">500K+</h2>
+              <p class="text-xl font-medium">Trees Planted</p>
+            </div>
+            <div
+              class="bg-white py-10 flex flex-col items-center justify-center rounded-lg hover:bg-green-200 cursor-pointer transition-all duration-200"
+            >
+              <h2 class="text-[#15803d] text-3xl font-bold">500K+</h2>
+              <p class="text-xl font-medium">Trees Planted</p>
+            </div>
+            <div
+              class="bg-white py-10 flex flex-col items-center justify-center rounded-lg hover:bg-green-200 cursor-pointer transition-all duration-200"
+            >
+              <h2 class="text-[#15803d] text-3xl font-bold">500K+</h2>
+              <p class="text-xl font-medium">Trees Planted</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+      <div class="modal-box">
+        <div id="modal_container">
+          <!-- from js -->
+        </div>
+        <div class="modal-action">
+          <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
+
     <script src="js/sectipt.js"></script>
   </body>
 </html>
