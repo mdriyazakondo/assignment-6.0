@@ -197,6 +197,55 @@
       </div>
     </dialog>
 
+    <footer class="bg-[#166534]">
+      <div class="py-24 bg-green-700">
+        <h2 class="text-center py-12 text-4xl font-semibold text-white">
+          Plant a Tree Today
+        </h2>
+        <form
+          class="max-w-2xl mx-auto flex flex-col p-10 bg-green-800 space-y-4 rounded-lg shadow-lg"
+        >
+          <!-- Name -->
+          <input
+            class="bg-white py-3 pl-3 outline-none border border-gray-300 rounded-md"
+            type="text"
+            placeholder="Your Name"
+            required
+          />
+          <!-- Email -->
+          <input
+            class="bg-white py-3 pl-3 outline-none border border-gray-300 rounded-md"
+            type="email"
+            placeholder="Your Email Address"
+            required
+          />
+          <!-- Number of Trees -->
+          <select
+            class="bg-white py-3 pl-3 outline-none border border-gray-300 rounded-md"
+            required
+          >
+            <option value="">Number of Trees</option>
+            <option value="1">1 Tree</option>
+            <option value="5">5 Trees</option>
+            <option value="10">10 Trees</option>
+            <option value="20">20 Trees</option>
+          </select>
+          <!-- Donate Button -->
+          <button
+            type="submit"
+            class="bg-yellow-400 py-3 cursor-pointer text-green-800 font-semibold rounded-full hover:bg-yellow-300 transition"
+          >
+            Donate Now
+          </button>
+        </form>
+      </div>
+      <div class="bg-[#14532d] py-8">
+        <p class="text-center text-white">
+          © 2025 Green Earth. All Rights Reserved.
+        </p>
+      </div>
+    </footer>
+
     <script src="js/sectipt.js"></script>
   </body>
 </html>
