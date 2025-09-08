@@ -74,7 +74,7 @@ const centerGreenData = (plants) => {
         <p>${description.slice(0, 113)} .......</p>
         <div class='flex justify-between items-center'>
           <p class='text-green-600 rounded-full py-2 px-4 bg-green-100 font-medium'>${name}</p>
-          <p class='text-sm font-semibold'>$${price}</p>
+          <p class='text-sm font-semibold'><i class="fa-solid fa-bangladeshi-taka-sign"></i>${price}</p>
         </div>
         <button onclick="rightSideBtn('${id}', '${category}', ${price})" class='py-2 hover:bg-transparent hover:text-green-600 hover:border transition-all duration-200 hover:border-green-600 cursor-pointer font-medium bg-green-600 text-white w-full rounded-full'>Add To Cart</button>
       </div>
@@ -120,9 +120,9 @@ const renderCart = () => {
       <div class='flex justify-between items-center p-4 bg-[#f0fdf4] rounded-md mb-3'>
         <div>
           <p class='text-xl font-medium mb-2'>${item.category}</p>
-          <p class='text-sm font-medium'>$${item.price} * ${item.quantity} = ${
-      item.price * item.quantity
-    }</p>
+          <p class='text-sm font-medium'><i class="fa-solid fa-bangladeshi-taka-sign"></i>${
+            item.price
+          } * ${item.quantity} = ${item.price * item.quantity}</p>
         </div>
         <button onclick="removeFromCart('${
           item.id
@@ -135,7 +135,7 @@ const renderCart = () => {
     <hr class='bg-gray-300 mt-1'/>
     <div class='flex justify-end items-center mt-2 gap-2'>
       <span class='text-xl font-medium'>Total:</span>
-      <span class='text-xl font-medium'>$${total}</span>
+      <span class='text-xl font-medium'><i class="fa-solid fa-bangladeshi-taka-sign"></i>${total}</span>
     </div>
   `;
 };
@@ -148,7 +148,7 @@ const openModal = (name, price, categoryItem, image, description) => {
       <h4 class="text-xl font-bold">${name}</h4>
       <img class="w-full rounded-lg h-50 object-cover" src="${image}" alt="${name}">
       <p class="font-bold">Category: <span class="font-normal">${categoryItem}</span></p>
-      <p class="font-bold">Price: <span class="font-normal">$${price}</span></p>
+      <p class="font-bold">Price: <span class="font-normal"><i class="fa-solid fa-bangladeshi-taka-sign"></i>${price}</span></p>
       <p class="font-bold">Description: <span class="font-normal">${description}</span></p>
     </div>
   `;
