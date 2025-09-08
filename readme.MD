@@ -3,30 +3,30 @@
 - **var**
 
   - Function scoped
-  - Redeclare ✅, Reassign ✅
+  - Redeclare , Reassign
   - Hoisted with `undefined`
   - পুরোনো JavaScript এ বেশি ব্যবহৃত
 
 - **let**
 
   - Block scoped
-  - Redeclare ❌, Reassign ✅
+  - Redeclare , Reassign
   - Hoisted but Temporal Dead Zone (TDZ) এ থাকে
 
 - **const**
   - Block scoped
-  - Redeclare ❌, Reassign ❌
+  - Redeclare , Reassign
   - Constant reference ধরে রাখে (object এর ভেতরের property change করা যায়)
 
 ```js
 var a = 10;
-var a = 20; // allowed
+var a = 20; 
 
 let b = 30;
-b = 40; // allowed
+b = 40; 
 
 const c = 50;
-// c = 60; ❌ not allowed
+
 ```
 
 ---
@@ -40,13 +40,13 @@ const c = 50;
 ```js
 const numbers = [1, 2, 3, 4, 5];
 
-numbers.forEach((n) => console.log(n)); // শুধু print করবে
+numbers.forEach((n) => console.log(n)); 
 
 const squares = numbers.map((n) => n * n);
-console.log(squares); // [1, 4, 9, 16, 25]
+console.log(squares); 
 
 const evens = numbers.filter((n) => n % 2 === 0);
-console.log(evens); // [2, 4]
+console.log(evens); 
 ```
 
 ---
@@ -56,16 +56,16 @@ console.log(evens); // [2, 4]
 Arrow functions → shorter & cleaner syntax, এবং `this` inherit করে surrounding scope থেকে।
 
 ```js
-// Normal Function
+
 function add(a, b) {
   return a + b;
 }
 
-// Arrow Function
+
 const addArrow = (a, b) => a + b;
 ```
 
-**✅ Benefits:**
+** Benefits:**
 
 - Shorter syntax
 - Lexical `this` binding
@@ -78,15 +78,13 @@ const addArrow = (a, b) => a + b;
 Destructuring → array/object থেকে value বের করে variable এ রাখা যায়।
 
 ```js
-// Array Destructuring
 const numbers = [10, 20, 30];
 const [x, y, z] = numbers;
-console.log(x, y, z); // 10 20 30
+console.log(x, y, z); 
 
-// Object Destructuring
 const user = { name: "Riyaz", age: 21 };
 const { name, age } = user;
-console.log(name, age); // Riyaz 21
+console.log(name, age); 
 ```
 
 ---
