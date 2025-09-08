@@ -133,9 +133,13 @@ const renderCart = () => {
       <div class='flex justify-between items-center p-4 bg-[#f0fdf4] rounded-md mb-3'>
         <div>
           <p class='text-xl font-medium mb-2'>${item.category}</p>
-          <p class='text-sm font-medium'>$${item.price} * ${item.quantity}</p>
+          <p class='text-sm font-medium'>$${item.price} * ${item.quantity} = ${
+      item.price * item.quantity
+    }</p>
         </div>
-        <button onclick="removeFromCart('${item.id}')" class='text-xl font-bold cursor-pointer text-red-500'>X</button>
+        <button onclick="removeFromCart('${
+          item.id
+        }')" class='text-xl font-bold cursor-pointer text-red-500'><i class="fa-solid fa-xmark"></i></button>
       </div>
     
     `;
@@ -143,14 +147,14 @@ const renderCart = () => {
 
   rightSide.innerHTML += `
     <hr class='bg-gray-300 mt-1'/>
-    <div class='flex justify-between items-center mt-2'>
+    <div class='flex justify-end items-center mt-2 gap-2'>
       <span class='text-xl font-medium'>Total:</span>
       <span class='text-xl font-medium'>$${total}</span>
     </div>
   `;
 };
 
-const openModal = (name, price, categoryItem, id, image, description) => {
+const openModal = (name, price, categoryItem, image, description) => {
   const modalContainer = document.getElementById("modal_container");
   modalContainer.innerHTML = `
     <div class="space-y-3">
