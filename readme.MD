@@ -1,4 +1,4 @@
-## 1. Difference between `var`, `let`, and `const`
+## 1. What is the difference between var, let, and const?
 
 - **var**
 
@@ -31,7 +31,7 @@ const c = 50;
 
 ---
 
-## 2. Difference between `map()`, `forEach()`, and `filter()`
+## 2. What is the difference between map(), forEach(), and filter()?
 
 - **forEach()** → শুধু loop চালায়, return করে না
 - **map()** → প্রতিটা element transform করে নতুন array return করে
@@ -51,7 +51,7 @@ console.log(evens); // [2, 4]
 
 ---
 
-## 3. Arrow Functions (ES6)
+## 3. What are arrow functions in ES6?
 
 Arrow functions → shorter & cleaner syntax, এবং `this` inherit করে surrounding scope থেকে।
 
@@ -73,7 +73,7 @@ const addArrow = (a, b) => a + b;
 
 ---
 
-## 4. Destructuring Assignment (ES6)
+## 4. How does destructuring assignment work in ES6?
 
 Destructuring → array/object থেকে value বের করে variable এ রাখা যায়।
 
@@ -91,7 +91,7 @@ console.log(name, age); // Riyaz 21
 
 ---
 
-## 5. Template Literals (ES6)
+## 5. Explain template literals in ES6. How are they different from string concatenation?
 
 Template literals (backticks `` ` `` দিয়ে লেখা হয়):
 
