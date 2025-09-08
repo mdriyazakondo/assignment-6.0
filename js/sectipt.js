@@ -4,6 +4,7 @@ const rightSide = document.getElementById("rightSide");
 
 let cart = [];
 
+// =================== Fetch All Categories ===================
 const allCategory = async () => {
   const res = await fetch(
     "https://openapi.programming-hero.com/api/categories"
@@ -12,55 +13,35 @@ const allCategory = async () => {
   categoryLeftSide(data.categories);
 };
 
+// =================== Render Categories ===================
 const categoryLeftSide = (categories) => {
-  categorySide.innerHTML = "";
-
+  let html = "";
   categories.forEach((item) => {
-    categorySide.innerHTML += `
+    html += `
       <li data-id="${item.id}" class="category-item text-xl font-semibold hover:text-white py-2 w-full hover:bg-green-600 rounded-md pl-4 cursor-pointer">
         ${item.category_name}
       </li>
     `;
-
-    const liBtn = document.querySelectorAll(".category-item");
-    liBtn.forEach((li) => {
-      li.addEventListener("click", (e) => {
-        liBtn.forEach((el) => {
-          el.classList.remove("bg-green-600");
-          el.classList.remove("text-white");
-        });
-
-        e.currentTarget.classList.add("bg-green-600");
-        e.currentTarget.classList.add("text-white");
-      });
-    });
   });
+  categorySide.innerHTML = html;
 
   const allLi = document.querySelectorAll(".category-item");
 
   allLi.forEach((li, index) => {
     li.addEventListener("click", function () {
+      allLi.forEach((el) => el.classList.remove("bg-green-600", "text-white"));
+
+      this.classList.add("bg-green-600", "text-white");
+
       const categoryId = this.getAttribute("data-id");
-
-      if (categoryId === "all") {
-        greenAllData();
-
-        allLi.forEach((el) => el.classList.remove("active"));
-        this.classList.add("active");
-      } else {
-        allLi.forEach((el) => el.classList.remove("active"));
-        this.classList.add("active");
-        leftSideCategory(categoryId);
-      }
+      categoryId === "all" ? greenAllData() : leftSideCategory(categoryId);
     });
 
-    if (index === 0) {
-      li.classList.add("active");
-      greenAllData();
-    }
+    greenAllData();
   });
 };
 
+// =================== Category Wise Data ===================
 const leftSideCategory = async (categoryId) => {
   loadingSpnninerLoad(true);
   const res = await fetch(
@@ -70,21 +51,24 @@ const leftSideCategory = async (categoryId) => {
   centerGreenData(data.plants);
 };
 
+// =================== All Plants Data ===================
 const greenAllData = async () => {
+  loadingSpnninerLoad(true);
   const res = await fetch("https://openapi.programming-hero.com/api/plants");
   const data = await res.json();
   centerGreenData(data.plants);
 };
 
+// =================== Render Plants ===================
 const centerGreenData = (plants) => {
-  categoryCenterSide.innerHTML = "";
+  let html = "";
   plants.forEach((item) => {
     const { category, name, price, id, description, image } = item;
 
-    categoryCenterSide.innerHTML += `
+    html += `
       <div class='bg-white p-4 rounded-md shadow-md space-y-4'>
         <img class='h-44 w-full rounded bg-gray-500 object-cover' src="${image}" alt="${name}">
-        <h2 class='text-2xl font-semibold cursor-pointer' onclick="openModal('${name}', ${price}, '${category}', '${id}', '${image}', '${description}')">
+        <h2 class='text-2xl font-semibold cursor-pointer' onclick="openModal('${name}', ${price}, '${category}', '${image}', '${description}')">
           ${category}
         </h2>
         <p>${description.slice(0, 113)} .......</p>
@@ -95,18 +79,19 @@ const centerGreenData = (plants) => {
         <button onclick="rightSideBtn('${id}', '${category}', ${price})" class='py-2 hover:bg-transparent hover:text-green-600 hover:border transition-all duration-200 hover:border-green-600 cursor-pointer font-medium bg-green-600 text-white w-full rounded-full'>Add To Cart</button>
       </div>
     `;
-    loadingSpnninerLoad(false);
   });
+
+  categoryCenterSide.innerHTML = html;
+  loadingSpnninerLoad(false);
 };
 
-const loadingSpnninerLoad = (stutas) => {
-  if (stutas) {
-    document.getElementById("loadingSpnniner").classList.remove("hidden");
-  } else {
-    document.getElementById("loadingSpnniner").classList.add("hidden");
-  }
+// =================== Loading Spinner ===================
+const loadingSpnninerLoad = (status) => {
+  const spinner = document.getElementById("loadingSpnniner");
+  status ? spinner.classList.remove("hidden") : spinner.classList.add("hidden");
 };
 
+// =================== Add To Cart ===================
 const rightSideBtn = (id, category, price) => {
   alert(`${category} Add to cart 🛒`);
   const existingItem = cart.find((item) => item.id === id);
@@ -118,11 +103,13 @@ const rightSideBtn = (id, category, price) => {
   renderCart();
 };
 
+// =================== Remove From Cart ===================
 const removeFromCart = (id) => {
   cart = cart.filter((item) => item.id !== id);
   renderCart();
 };
 
+// =================== Render Cart ===================
 const renderCart = () => {
   rightSide.innerHTML = "<h2 class='text-2xl font-bold mb-2'>Cart</h2>";
   let total = 0;
@@ -141,7 +128,6 @@ const renderCart = () => {
           item.id
         }')" class='text-xl font-bold cursor-pointer text-red-500'><i class="fa-solid fa-xmark"></i></button>
       </div>
-    
     `;
   });
 
@@ -154,6 +140,7 @@ const renderCart = () => {
   `;
 };
 
+// =================== Modal ===================
 const openModal = (name, price, categoryItem, image, description) => {
   const modalContainer = document.getElementById("modal_container");
   modalContainer.innerHTML = `
@@ -168,10 +155,7 @@ const openModal = (name, price, categoryItem, image, description) => {
 
   const modal = document.getElementById("my_modal_5");
   modal.showModal();
-
-  document.getElementById("closeModalBtn").onclick = () => {
-    modal.close();
-  };
+  document.getElementById("closeModalBtn").onclick = () => modal.close();
 };
 
 greenAllData();
